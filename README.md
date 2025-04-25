@@ -19,18 +19,72 @@ Esta es una landing page desarrollada con *HTML, **Bootstrap* y *JavaScript* pur
 ## 🧱 Tecnologías utilizadas
 
 •⁠  ⁠HTML5
+•⁠  ⁠CSS3
 •⁠  ⁠Bootstrap 5
 •⁠  ⁠JavaScript (vanilla)
+•⁠  ⁠Supabase (opcional) -> Optional to save waiting list
 
 ---
 
-## 📁 Estructura de carpetas
+## 📁 Estructura del Proyecto
 
-quechualingo-landing/ │ ├── index.html # Página principal ├── css/ │ └── styles.css # Estilos personalizados (si deseas) ├── js/ │ └── main.js # Funciones JS para manejo del formulario └── README.md # Este archivo
+```
+quechualingo/
+├── src/
+│   ├── modules/
+│   │   └── landing/
+│   │       ├── presentation/
+│   │       │   ├── components/
+│   │       │   │   ├── Header.js
+│   │       │   │   ├── WaitingListForm.js
+│   │       │   │   ├── Features.js
+│   │       │   │   └── Footer.js
+│   │       │   ├── styles/
+│   │       │   │   └── landing.css
+│   │       │   └── index.html
+│   │       ├── domain/
+│   │       │   └── models/
+│   │       │       └── Subscriber.js
+│   │       └── data/
+│   │           ├── repositories/
+│   │           │   └── SubscriberRepository.js
+│   │           └── services/
+│   │               └── WaitingListService.js
+│   ├── shared/
+│   │   ├── styles/
+│   │   │   └── global.css
+│   │   └── utils/
+│   │       └── validation.js
+│   └── assets/
+│       ├── images/
+│       └── fonts/
+├── public/
+│   └── index.html
+├── package.json
+└── README.md
+```
 
-yaml
-Copiar
-Editar
+## 🏗️ Arquitectura del Proyecto
+
+### Módulo Landing
+
+#### 1. Capa de Presentación (presentation)
+- **Components**: Componentes UI reutilizables
+- **Styles**: Estilos CSS específicos del módulo
+
+#### 2. Capa de Dominio (domain)
+- **Models**: Definición de entidades y reglas de negocio
+
+#### 3. Capa de Datos (data)
+- **Repositories**: Manejo de datos y persistencia
+- **Services**: Lógica de negocio y conexión con APIs
+
+### Características del Módulo Landing
+- Implementación de Clean Architecture
+- Separación clara de responsabilidades
+- Componentes modulares y reutilizables
+- Integración con servicios externos (Supabase/Google Sheets)
+
 
 ---
 
@@ -57,32 +111,3 @@ Breve párrafo explicativo del propósito de la plataforma.
 Mensaje de derechos reservados:  
 ⁠ ©️ 2025 Quechualingo. Todos los derechos reservados. ⁠
 
----
-
-## 🔌 Conexión con Supabase (opcional)
-
-1.⁠ ⁠Crea un proyecto en [https://supabase.io](https://supabase.io)
-2.⁠ ⁠Crea una tabla llamada ⁠ espera ⁠ con:
-   - ⁠ id ⁠ (int o UUID, auto-incremental)
-   - ⁠ email ⁠ (text)
-   - ⁠ fecha ⁠ (timestamp, default: now())
-3.⁠ ⁠Usa ⁠ fetch() ⁠ en ⁠ main.js ⁠ para enviar el correo:
-
-```js
-async function enviarCorreo(email) {
-  const response = await fetch('https://TU-PROYECTO.supabase.co/rest/v1/espera', {
-    method: 'POST',
-    headers: {
-      'apikey': 'TU_API_KEY_PUBLICA',
-      'Content-Type': 'application/json',
-      'Prefer': 'return=minimal'
-    },
-    body: JSON.stringify({ email: email })
-  });
-
-  if (response.ok) {
-    alert('¡Gracias por unirte a Quechualingo!');
-  } else {
-    alert('Hubo un problema, inténtalo nuevamente.');
-  }
-}
