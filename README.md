@@ -17,7 +17,7 @@ Esta es una landing page desarrollada con *HTML, **Bootstrap* y *JavaScript* pur
 ---
 
 ## 🧱 Tecnologías utilizadas
-
+•⁠  Astro
 •⁠  ⁠HTML5
 •⁠  ⁠CSS3
 •⁠  ⁠Bootstrap 5
@@ -30,38 +30,35 @@ Esta es una landing page desarrollada con *HTML, **Bootstrap* y *JavaScript* pur
 
 ```
 quechualingo/
+│
+├── public/                # Archivos estáticos (imágenes, favicon, etc.)
+│   ├── favicon.svg
+│   └── logo.png
+│
 ├── src/
-│   ├── modules/
-│   │   └── landing/
-│   │       ├── presentation/
-│   │       │   ├── components/
-│   │       │   │   ├── Header.js
-│   │       │   │   ├── WaitingListForm.js
-│   │       │   │   ├── Features.js
-│   │       │   │   └── Footer.js
-│   │       │   ├── styles/
-│   │       │   │   └── landing.css
-│   │       │   └── index.html
-│   │       ├── domain/
-│   │       │   └── models/
-│   │       │       └── Subscriber.js
-│   │       └── data/
-│   │           ├── repositories/
-│   │           │   └── SubscriberRepository.js
-│   │           └── services/
-│   │               └── WaitingListService.js
-│   ├── shared/
-│   │   ├── styles/
-│   │   │   └── global.css
-│   │   └── utils/
-│   │       └── validation.js
-│   └── assets/
-│       ├── images/
-│       └── fonts/
-├── public/
-│   └── index.html
-├── package.json
-└── README.md
+│   ├── components/        # Componentes reutilizables
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   └── Button.astro
+│   │
+│   ├── layouts/           # Layouts generales
+│   │   └── BaseLayout.astro
+│   │
+│   ├── pages/             # Rutas (cada archivo .astro es una ruta)
+│   │   ├── index.astro    # Página principal
+│   │   ├── about.astro    # Página "Acerca de" (opcional)
+│   │   └── contact.astro  # Página de contacto (opcional)
+│   │
+│   ├── styles/            # Archivos de estilo
+│   │   └── global.css
+│   │
+│   └── utils/             # Funciones utilitarias (opcional si necesitas lógica)
+│       └── helpers.ts
+│
+├── astro.config.mjs       # Configuración de Astro
+├── package.json           # Dependencias y scripts
+├── tsconfig.json          # Configuración de TypeScript (opcional pero recomendado)
+└── README.md              # Descripción del proyecto
 ```
 
 ## 🏗️ Arquitectura del Proyecto
