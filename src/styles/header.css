@@ -1,0 +1,32 @@
+/* Header Styles */
+.header {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #4a90e2, #7f53ac);
+  color: white;
+}
+
+.header__title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.header__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

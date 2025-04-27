@@ -1,0 +1,39 @@
+---
+---
+<header class="header">
+  <h1 class="header__title">¡Aprende quechua gratis, fácil y jugando!</h1>
+  <p class="header__subtitle">Únete a nuestra lista de espera y sé el primero en comenzar tu viaje de aprendizaje</p>
+  
+  <div class="waiting-list-form">
+    <form id="waitingListForm" class="form__group">
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        class="form__input" 
+        placeholder="Tu correo electrónico"
+        required
+      />
+      <button type="submit" class="form__button">Unirme a la lista de espera</button>
+      <p class="form__message" id="formMessage"></p>
+    </form>
+  </div>
+</header>
+
+<style>
+  @import '../styles/header.css';
+  @import '../styles/waiting-list-form.css';
+</style>
+
+<script>
+  const form = document.getElementById('waitingListForm');
+  const message = document.getElementById('formMessage');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    
+    message!.textContent = '¡Gracias por unirte! Te contactaremos pronto.';
+    (document.getElementById('email') as HTMLInputElement).value = '';
+  });
+</script>

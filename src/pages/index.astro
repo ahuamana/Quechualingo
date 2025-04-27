@@ -1,0 +1,29 @@
+---
+import Header from '../components/Header.astro';
+import About from '../components/About.astro';
+import Features from '../components/Features.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quechualingo - Aprende quechua gratis, fácil y jugando</title>
+    <meta name="description" content="Aprende quechua de forma divertida y gratuita con Quechualingo. Únete a nuestra lista de espera y sé el primero en comenzar tu viaje de aprendizaje." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <About />
+      <Features />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
