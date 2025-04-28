@@ -1,0 +1,114 @@
+---
+interface TeamMember {
+  name: string;
+  image: string;
+  role?: string;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    name: "Antony Nicolas Huaman Alikhan",
+    image: "/team/antony.svg",
+    role: "Founder & Developer"
+  },
+  {
+    name: "Diego Trucios Bustencia",
+    image: "/team/diego.svg",
+    role: "Founder & Language Expert"
+  },
+  {
+    name: "Sergio Smith Rutte Orosco",
+    image: "/team/sergio.svg",
+    role: "Founder & Content Creator"
+  }
+];
+---
+
+<section class="team">
+  <div class="team__container">
+    <h2 class="team__title">Nuestro Equipo</h2>
+    <p class="team__description">Contamos con un equipo de expertos comprometidos:</p>
+    
+    <div class="team__grid">
+      {teamMembers.map(member => (
+        <div class="team__member">
+          <div class="team__member-image">
+            <img src={member.image} alt={member.name} />
+          </div>
+          <h3 class="team__member-name">{member.name}</h3>
+          {member.role && <p class="team__member-role">{member.role}</p>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team {
+    padding: 4rem 1rem;
+    background-color: #f9f9f9;
+  }
+
+  .team__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .team__title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .team__description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+  }
+
+  .team__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .team__member {
+    text-align: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .team__member:hover {
+    transform: translateY(-5px);
+  }
+
+  .team__member-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .team__member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team__member-name {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .team__member-role {
+    color: #666;
+    font-size: 0.9rem;
+  }
+</style>
